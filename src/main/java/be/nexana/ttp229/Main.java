@@ -28,7 +28,7 @@ public class Main {
 
         // create an instance of the serial communications class
         final Serial serial = SerialFactory.createInstance();
-
+        String serialPort = "/dev/ttyS0";
         // create and register the serial data listener
         serial.addListener(new SerialDataListener() {
             @Override
@@ -40,7 +40,7 @@ public class Main {
 
         try {
             // open the default serial port provided on the GPIO header
-            serial.open(Serial.DEFAULT_COM_PORT, 38400);
+            serial.open(serialPort, 38400);
 
             // continuous loop to keep the program running until the user terminates the program
             for (;;) {
